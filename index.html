@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Кошка выходит замуж</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: #fdfdfb;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 22px;
+      color: #888;
+      margin-bottom: 40px;
+    }
+    .block {
+      margin-bottom: 40px;
+    }
+    .footer {
+      margin-top: 60px;
+      font-size: 14px;
+      color: #aaa;
+    }
+    .bubble {
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: 20px;
+      background: #fff0f5;
+      border: 1px solid #ffc0cb;
+      font-size: 18px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .show {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    .slider-container {
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 10px 0;
+      margin: 20px 0 10px;
+      position: relative;
+    }
+    .slider-container::-webkit-scrollbar {
+      height: 8px;
+    }
+    .slider-container::-webkit-scrollbar-thumb {
+      background: #ffc0cb;
+      border-radius: 4px;
+    }
+
+    .slide {
+      display: inline-block;
+      width: 90%;
+      max-width: 600px;
+      margin: 0 5%;
+    }
+    .slide img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .scroll-tip {
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 10px;
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>КОШКА ВЫХОДИТ ЗАМУЖ</h1>
+    <h2>и это мы не переживём... а отметим</h2>
+
+    <div class="bubble">Настюша, осталось всего ничего до твоей свадьбы 💒<br>
+    Мы всегда будем вспоминать наши совместные ночные посиделки,<br>
+    но это не значит что у нас их больше не будет!</div>
+
+    <div class="bubble">Мы приглашаем тебя на нашу совместную ночёвку,<br>
+    где ты в последний раз будешь со своей девичьей фамилией 😊🥹</div>
+
+    <div class="scroll-tip">⟶ листай комикс</div>
+    <div class="slider-container">
+      <div class="slide"><img src="https://i.imgur.com/mUQTSt2.png" alt="комикс 1"></div>
+      <div class="slide"><img src="https://i.imgur.com/Jame9sJ.png" alt="комикс 2"></div>
+      <div class="slide"><img src="https://i.imgur.com/HYXGLjN.png" alt="комикс 3"></div>
+      <div class="slide"><img src="https://i.imgur.com/oHMQ0qW.png" alt="комикс 4"></div>
+    </div>
+
+    <div class="block bubble">
+      <p><strong>2 мая, 15:30</strong></p>
+      <p><strong>Место:</strong> приезжай к Парамоновской мельнице, проект реконструкции которой мы делали 😻<br>
+      (Береговая, 71а Державинский переулок, 2.)</p>
+      <p><strong>Что взять:</strong> всё, что ты брала, когда приходила делать курсовую на два дня к Вике — и платье!<br>
+      Мы тебя крадём <b>на сутки</b>!</p>
+    </div>
+
+    <div class="footer">
+      ЛЮБИМ ♥
+    </div>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.bubble').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
